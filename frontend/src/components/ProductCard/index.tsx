@@ -1,4 +1,5 @@
 import type { IProduto } from "../../types/produtos"
+import "./styles.css"
 
 interface Props {
   produto: IProduto
@@ -7,19 +8,26 @@ interface Props {
 export function ProductCard({ produto }: Props) {
 
   return (
-    <div>
+    <div className="product-card">
 
-      <p>{produto.name}</p>
+      <h2 className="product-name">{produto.name}</h2>
 
-      <p>R$ {produto.price}</p>
+      <p className="product-price">
+        R$ {produto.price.toFixed(2)}
+      </p>
 
-      <p>
+      <p className="product-description">
+        {produto.description}
+      </p>
+
+      <p className="product-address">
         {produto.address.street}, {produto.address.number}
       </p>
 
-      <p>{produto.address.state}</p>
+      <span className="product-state">
+        {produto.address.state}
+      </span>
 
     </div>
   )
-
 }
